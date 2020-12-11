@@ -82,3 +82,8 @@
         $('.card .material-datatables label').addClass('form-group');
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        demo.initFormExtendedDatetimepickers();
+    });
+</script>
