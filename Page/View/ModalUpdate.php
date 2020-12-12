@@ -68,7 +68,7 @@ if(isset($_POST["sem_id"]))
 			if(file_exists("../Include/Image/berkas/".$row->bukti_byr)){
 				echo '<img style="width: 100%;
   height: auto;" src="../Include/Image/berkas/'.$row->bukti_byr.'">';
-  echo '<input type ="hidden" name="old_berkas" value ='.$row->bukti_byr.'/>';
+  echo '<input type ="hidden" name="old_berkas" value ="'.$row->bukti_byr.'"/>';
   echo '<div class="form-group label-floating">
   <label class="control-label">Upload Bukti Bayar</label>
   <div class="fileinput fileinput-new text-center" data-provides="fileinput">                                               
