@@ -75,7 +75,7 @@ if(isset($_POST["sem_id"]))
 		  <span class="btn btn-round btn-rose btn-file">
 			  <span class="fileinput-new">Bukti Bayar</span>
 			  <span class="fileinput-exists">Change</span>
-			  <input type="file" name="berkas" required="true" />
+			  <input type="file" name="berkas" />
 		  </span>
 		  <br />
 		  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -85,6 +85,19 @@ if(isset($_POST["sem_id"]))
 </div>';
 			}else{
 				echo '<h4 class="title" style="color:blue;text-align:left; font-weight: bold; ">File Bukti pembayaran tidak ada !</h4>';
+				echo '<div class="form-group label-floating">
+  <div class="fileinput fileinput-new text-center" data-provides="fileinput">                                               
+		  <span class="btn btn-round btn-rose btn-file">
+			  <span class="fileinput-new">Bukti Bayar</span>
+			  <span class="fileinput-exists">Change</span>
+			  <input type="file" name="berkas" />
+		  </span>
+		  <br />
+		  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+	  </div>
+  </div>
+  </div>
+</div>';
 			}
 			?></td>
         </tr>

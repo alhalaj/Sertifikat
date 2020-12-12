@@ -20,7 +20,7 @@ require '../Include/Connect/Connections.php';
     $status = empty($status) ? "false":"true";
 
     $ekstensi_diperbolehkan	= array('png','jpg');
-    $berkas = $_FILES['berkas']['name'];
+    $berkas = $_FILES['berkas']['name'];   
     $x = explode('.', $berkas);
     $ekstensi = strtolower(end($x));
     $ukuran	= $_FILES['berkas']['size'];
@@ -42,6 +42,7 @@ require '../Include/Connect/Connections.php';
                     }
                 //     // return true;
                 //     echo 'FILE BERHASIL DI UPLOAD';
+                header("location:../View/Peserta.php");
                 }else{
                     echo 'GAGAL MENGUPLOAD GAMBAR';
                 }
@@ -50,8 +51,10 @@ require '../Include/Connect/Connections.php';
             }
         }else{
             echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+            // header("location:../View/Peserta.php");
         }
     }else {
+        // $berkas = empty($berkas) ? "buktibayar":$berkas;
         $query ="UPDATE pendaftaran_seminar SET `status`= '$status' where id_pendaftaran ='$id'";
     // echo $status;
         $update = mysqli_query($con,$query);
@@ -61,6 +64,31 @@ require '../Include/Connect/Connections.php';
                 // echo 'Error : '.$insert->error." ".$query."<br>";
                 // echo 'Error : '.mysqli_error($con);
             }
+           /* if(!empty($berkas)){
+            if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+                if($ukuran < 1044070){		
+                // echo $file_tmp;
+                    if($update){
+                        move_uploaded_file($file_tmp, '../Include/Image/berkas/'.$berkas);
+                        if(file_exists($path.$oldberkas)){
+                            unlink($path.$oldberkas);
+                        }else {
+
+                        }
+                    //     // return true;
+                    //     echo 'FILE BERHASIL DI UPLOAD';
+                    }else{
+                        echo 'GAGAL MENGUPLOAD GAMBAR';
+                    }
+                }else{
+                    echo 'UKURAN FILE TERLALU BESAR';
+                }
+            }else{
+                header("location:../View/Peserta.php");
+            }
+        }else{
+            header("location:../View/Peserta.php");
+        }*/
       }
 }
 ?>
