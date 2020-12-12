@@ -67,14 +67,6 @@
                                                     <td><?php echo $row->tgl_daftar; ?></td>
                                                     <td><?php echo $status === 'false' ? "Belum Aktif" : "Aktif"; ?></td>
                                                     <td class="text-right">
-                                                        <!-- <a href="#" class="btn btn-simple btn-info btn-icon like"><i class="material-icons">favorite</i></a>
-                                                        <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                                        <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
-                                                        <a href="" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">print</i></a>
-                                                        <form action="Certificate" method="post">
-                                                        <input type="text" name="namacetak" value="<?php //echo "$name";?>">								
-                                                        <input id="get" type="submit" class="btn btn-primary" value="Get Certificate Now" name="certificate">
-                                                        </form> -->
                                                         <input type="button" name="edit" value="Edit" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-info btn-xs edit_data" />
                                                     <input type="button" name = "delete" value ="Delete" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal1" class="btn btn-xs btn-danger hapus"/>
                                                     </td>
@@ -203,19 +195,7 @@
 <!--   Core JS Files   -->
 <?php require '../Include/Js.php'; ?>
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/forms/regular.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:33:48 GMT -->
-<script>  
-//  $(document).ready(function(){  
-//     $(document).on('click', '.add_data', function(){  
-//            var sem_id = $(this).attr("id");
-//            $.ajax({  
-//                 url:"ModalAdd.php",  
-//                 method:"POST",  
-//                 data:{pes:sem_id},
-//                 success:function(response){
-//                     $("#detail0").html(response);
-//                 }  
-//            });  
-//       });   
+<script>    
       $(document).on('click', '.edit_data', function(){  
            var sem_id = $(this).attr("id");
            $.ajax({  
