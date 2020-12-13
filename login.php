@@ -62,10 +62,10 @@
           <h1 class="title">Cetak Sertifikat Seminar</h1>
           <h4>Silahkan Login / registrasi dahulu</h4>
           <br>          
-		  <a href="http://pendaftaran.imla.or.id/imla_daftar_akun.php" target="_blank" class="btn btn-info btn-raised btn-lg">
+		  <a href="daftar.php" target="_blank" class="btn btn-info btn-raised btn-lg">
             <i class="material-icons">assignment</i> Daftar
           </a>
-          <a href="http://pendaftaran.imla.or.id/imla_login.php" target="_blank" class="btn btn-success btn-raised btn-lg">
+          <a href="login_aksi.php" target="_blank" class="btn btn-success btn-raised btn-lg">
             <i class="material-icons">assignment_ind</i> Masuk
           </a>
         </div>
