@@ -63,7 +63,6 @@
                             </div>
                         </div>
             
-            
           </div>
           
           
@@ -75,7 +74,8 @@
   <?php require '../Include/Js.php'; ?>
 </body>
 <?php
- session_destroy();
+// session_unset();
+//  session_destroy();
 }
 ?>
 </html>

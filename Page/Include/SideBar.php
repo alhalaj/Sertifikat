@@ -1,3 +1,14 @@
+<?php
+require '../Include/lock.php';
+require '../Include/Connect/Connections.php';
+if($_SESSION['status']!="Active"){
+    header ('location:../../login.php');
+    exit(); 
+    } else{
+        $user = $_SESSION['username'];
+
+        // $query ="SELECT * FROM users WHERE level ="
+?>
 <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../../assets/img/logo.jpg">           
             
             
@@ -8,8 +19,16 @@
                     </div>
                     <div class="info">
                         <a >
-                            Peserta
-                         
+                            <?php
+                             $query = $con->query("SELECT nama FROM peserta WHERE username = '$user'");
+                             $row = mysqli_fetch_assoc($query);
+                             echo "Sdr/i ".$row['nama'];
+                            ?>
+                        </a>
+                        <a >
+                            <?php
+                             echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
+                            ?>
                         </a>
                         
                     </div>
@@ -21,6 +40,10 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    <?php 
+                    $level = $_SESSION['mylevel'];
+                    if ($level === "Admin" ){
+                    ?>
                     <li>
                         <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">image</i>
@@ -39,6 +62,10 @@
                             </ul>
                         </div>
                     </li>
+                    <?php
+                    }
+                 }
+                    ?>
                     <li>
                         <a href="../View/Peserta.php">
                             <i class="material-icons">image</i>

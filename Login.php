@@ -11,13 +11,19 @@ if (ISSET ($_POST['submit'])){
         header("location:login_aksi.php?".$status."=".$url);
     } else {
         $row = mysqli_fetch_assoc($query);
-        if ($row['level'] === 'User'){
+        $level = $row['level'];
+        if ($level === 'User'){
             $_SESSION['status']="Active";
             $_SESSION['nuha'] =$pass;
+            $_SESSION['mylevel'] =$level;
+            $_SESSION['username'] =$username;
             header("location:Page/View/dashboard.php");
             // header("location:./test.php");
         } else {
+            $_SESSION['status']="Active";
             $_SESSION['aris'] ='TRUE';
+            $_SESSION['mylevel'] =$level;
+            header("location:Page/View/dashboard.php");
             echo "Admin";
         }
     } 
