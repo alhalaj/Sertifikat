@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require '../Include/lock.php';
 require '../Include/Connect/Connections.php';
 if($_SESSION['status']!="Active"){
@@ -10,8 +11,7 @@ if($_SESSION['status']!="Active"){
         // $query ="SELECT * FROM users WHERE level ="
 ?>
 <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../../assets/img/logo.jpg">           
-            
-            
+
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">

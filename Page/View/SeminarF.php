@@ -60,14 +60,18 @@ require '../Include/Connect/Connections.php';
                     move_uploaded_file($file_tmp, '../Include/Image/berkas/'.$berkas);
                    // return true;
                     echo 'FILE BERHASIL DI UPLOAD';
+                    header("location:../View/Peserta.php");
                 }else{
                     echo 'GAGAL MENGUPLOAD GAMBAR';
+                    header("location:../View/Peserta.php");
                 }
             }else{
                 echo 'UKURAN FILE TERLALU BESAR';
+                header("location:../View/Peserta.php");
             }
         }else{
             echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+            header("location:../View/Peserta.php");
         }
         // echo $id_peserta ." ".$id_seminar . " ".$id_berkas;
     }
