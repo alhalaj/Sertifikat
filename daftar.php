@@ -32,10 +32,18 @@
 				<div class="card" style="margin-top: 50px">
                     <div class="card-header" data-background-color="blue">
                         <h4 >Register Anggota Baru IMLA</h4>
-                        <p class="category">Isi Form pendaftaran akun dengan benar, data ini akan digunakan untuk login akun anda</p>
+                        <?php
+                        $status = base64_decode($_GET['c3RhdHVz']);
+                        // $message = $_GET['status'];
+                        echo $status == 'notsuccess' ? 'Input Tidak Boleh Kosong' : ( $status == 'failed' ?'Username Sudah Ada':
+                        '<p class="category">Isi Form pendaftaran akun dengan benar, data ini akan digunakan untuk login akun anda</p>');
+                        // echo $message == base64_decode('notsuccess') ? 'Input Tidak Boleh Kosong' : ( $message == base64_decode('failed') ?'Username Sudah Ada':
+                        // '<p class="category">Isi Form pendaftaran akun dengan benar, data ini akan digunakan untuk login akun anda</p>');
+                        ?>
                     </div>
                     <div class="card-content">
-                        <form method="post" onsubmit="return checkForm(this);" action="imla_proses_simpan_pendaftaran.php" enctype="multipart/form-data">
+                    <!-- onsubmit="return checkForm(this);" -->
+                        <form method="post"  action="Daftar.php" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">

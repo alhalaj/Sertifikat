@@ -4,6 +4,7 @@
 
 <head>
   <?php 
+        require '../Include/lock.php';
         require '../Include/Header.php';
         require '../Include/Connect/Connections.php';
 		$total = "select count(*) as JUM from peserta ";
@@ -11,7 +12,11 @@
 		$totalp = mysqli_fetch_array($mhs,MYSQLI_ASSOC);
 		$sql = "select count(*) as JUM2 from seminar ";
 		$seminar = mysqli_query($con,$sql);
-		$totals = mysqli_fetch_array($seminar,MYSQLI_ASSOC);
+        $totals = mysqli_fetch_array($seminar,MYSQLI_ASSOC);
+        if($_SESSION['status']!="Active"){
+            header ('location:../../login.php');
+            exit(); 
+         } else{
     ?>
 </head>
 
@@ -69,5 +74,8 @@
   </div>
   <?php require '../Include/Js.php'; ?>
 </body>
-
+<?php
+ session_destroy();
+}
+?>
 </html>

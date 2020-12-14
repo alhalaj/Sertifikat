@@ -51,6 +51,12 @@
                             <p>Cetak Sertifikat</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="../../logout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <p>Logout</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

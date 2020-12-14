@@ -28,7 +28,13 @@
 	            <div class="account-wall">
 	                <img class="profile-img" src="https://munasbauai.com/templates/images/ojs_brand.png"
 	                    alt="">
-	                <form class="form-signin" method="post" action="">
+						<div class="text-center">
+						<?php
+							$status = base64_decode($_GET['c3RhdHVz']);
+							echo $status == 'success' ? 'Pendaftaran Sukses':($status == 'failed' ? 'Username atau Password Anda Salah':'');
+						?>
+						</div>
+	                <form class="form-signin" method="post" action="Login.php">
 		                <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
 		                <input type="password" class="form-control" name="password" placeholder="Password" required>
 		                <button class="btn btn-lg btn-success btn-block" type="submit" name="submit">
