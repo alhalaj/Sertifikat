@@ -20,7 +20,7 @@ if (isset($_POST['submit'])){
             //    $propinsi =  $_POST['wilayah'];
              //   $alamat =  $_POST['alamat'];
             //    $instansi =  $_POST['afiliasi'];
-             //   $skill =  $_POST['keahlian'];
+                $status =  $_POST['status'];
             //    $hp =  $_POST['telepon'];
                 // $foto =  $_POST['foto'];
                 $date = date('Y-m-d', strtotime($_POST['tanggal']));
@@ -37,8 +37,8 @@ if (isset($_POST['submit'])){
              //    if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
               //      if($ukuran < 1044070){
                             $query ="INSERT INTO users (`username`,`password`,`email`) VALUES ('$username','$password','$email');";
-                          $query .="INSERT INTO peserta (`username`,`nama`,`tempat_lahir`,`tgl_lahir`,`jnis_kelamin`,`propinsi`,`alamat`,`instansi`,`skill`,`hp`,`foto`) VALUES
-                            ('$username','$nama','','','$jnis_kelamin','','','','','','')";
+                          $query .="INSERT INTO peserta (`username`,`nama`,`tempat_lahir`,`tgl_lahir`,`jnis_kelamin`,`propinsi`,`alamat`,`instansi`,`status`,`hp`,`foto`) VALUES
+                            ('$username','$nama','','','$jnis_kelamin','','','','$status','','')";
                             // echo $query;
                             $insert = mysqli_multi_query($con,$query);
                             if($insert){

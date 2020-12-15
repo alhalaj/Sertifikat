@@ -93,6 +93,19 @@ error_reporting(0)
                                     </div>
                                 </div>
                             </div>
+							<div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Status Peserta</label>
+                                        <select name="status" class="form-control" required autofocus>
+                                            <option value="" disabled selected>-- Pilih Status Peserta --</option>
+                                        
+                                            <option value="Pemakalah">Pemakalah</option>
+                                            <option value="Non Pemakalah">Non Pemakalah</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                            
                        <!--       <div class="row">
                                 <div class="col-md-12">
@@ -200,7 +213,7 @@ error_reporting(0)
 
                             
 							<button type="submit" name="submit" class="btn btn-primary pull-right">Kirim <i class="fa fa-arrow-right"></i></button>
-							
+							<a href="login.php" class="btn btn-danger pull-left"><i class="fa fa-arrow-left"></i> Batal</a>
 
                             
                             <div class="clearfix"></div>
