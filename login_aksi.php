@@ -1,3 +1,8 @@
+<?php
+
+error_reporting(0)
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.png" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Login Anggota IMLA</title>
+    <title>Login Cetak Sertifikat</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -34,7 +39,7 @@
 							echo $status == 'success' ? 'Pendaftaran Sukses':($status == 'failed' ? 'Username atau Password Anda Salah':'');
 						?>
 						</div>
-	                <form class="form-signin" method="post" action="Login.php">
+	                <form class="form-signin" method="post" action="ProsesLogin.php">
 		                <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
 		                <input type="password" class="form-control" name="password" placeholder="Password" required>
 		                <button class="btn btn-lg btn-success btn-block" type="submit" name="submit">

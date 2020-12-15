@@ -1,4 +1,8 @@
+<?php
 
+error_reporting(0)
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.png" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Pendaftaran Anggota Baru IMLA</title>
+    <title>Pendaftaran</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -30,8 +34,8 @@
 	        <div class="col-sm-12 col-md-8 col-lg-10 col-lg-offset-1">
 
 				<div class="card" style="margin-top: 50px">
-                    <div class="card-header" data-background-color="blue">
-                        <h4 >Register Anggota Baru IMLA</h4>
+                    <div class="card-header" data-background-color="green">
+                        <h4 >Register Anggota Baru</h4>
                         <?php
                         $status = base64_decode($_GET['c3RhdHVz']);
                         // $message = $_GET['status'];
@@ -43,7 +47,7 @@
                     </div>
                     <div class="card-content">
                     <!-- onsubmit="return checkForm(this);" -->
-                        <form method="post"  action="Daftar.php" enctype="multipart/form-data">
+                        <form method="post"  action="ProsesDaftar.php" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
@@ -194,11 +198,11 @@
 
                             
 							<button type="submit" name="submit" class="btn btn-primary pull-right">Kirim <i class="fa fa-arrow-right"></i></button>
-                            
+							
 
                             
                             <div class="clearfix"></div>
-                        </form>
+                        </form>						
 
                     </div>
                 </div>

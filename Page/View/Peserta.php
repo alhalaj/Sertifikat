@@ -1,3 +1,9 @@
+<?php
+
+error_reporting(0)
+
+?>
+
 <!doctype html>
 <html lang="en">
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/forms/regular.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:33:48 GMT -->
