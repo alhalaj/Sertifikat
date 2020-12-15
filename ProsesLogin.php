@@ -4,7 +4,7 @@ require 'Page/Include/Connect/Connections.php';
 if (ISSET ($_POST['submit'])){
     $username = $_POST['email'];
     $pass = $_POST['password'];
-    $query = $con->query("SELECT * FROM users WHERE username = '$username' AND password = '$pass'");
+    $query = $con->query("SELECT * FROM users WHERE username = '$username' AND password = '".md5($pass)."'");
     if(mysqli_num_rows($query)==0){
         $status = base64_encode('status');
         $url = base64_encode('failed');
