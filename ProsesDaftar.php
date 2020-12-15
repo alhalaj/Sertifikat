@@ -36,7 +36,7 @@ if (isset($_POST['submit'])){
             //    $path = 'Page/Include/Image/foto/';
              //    if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
               //      if($ukuran < 1044070){
-                            $query ="INSERT INTO users (`username`,`password`,`email`) VALUES ('$username','".md5($password)."','$email');";
+                            $query ="INSERT INTO users (`username`,`password`,`email`,`status`) VALUES ('$username','".md5($password)."','$email','$status');";
                           $query .="INSERT INTO peserta (`username`,`nama`,`tempat_lahir`,`tgl_lahir`,`jnis_kelamin`,`propinsi`,`alamat`,`instansi`,`status`,`hp`,`foto`) VALUES
                             ('$username','$nama','','','$jnis_kelamin','','','','$status','','')";
                             // echo $query;

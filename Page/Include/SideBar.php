@@ -5,11 +5,11 @@ if($_SESSION['status']!="Active"){
     header ('location:../../login.php');
     exit(); 
     } else{
-        $user = $_SESSION['username'];
+         $user = $_SESSION['username'];
 
         // $query ="SELECT * FROM users WHERE level ="
 ?>
-<div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../../assets/img/logo.jpg">           
+<div class="sidebar" data-active-color="green" data-background-color="black" data-image="../../assets/img/logo.jpg">           
             
             
             <div class="sidebar-wrapper">
@@ -27,7 +27,8 @@ if($_SESSION['status']!="Active"){
                         </a>
                         <a >
                             <?php
-                             echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
+                             //echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
+							 echo   $_SESSION['sebagai'] =="Admin" ? "Admin":$_SESSION['sebagai'];
                             ?>
                         </a>
                         

@@ -12,16 +12,19 @@ if (ISSET ($_POST['submit'])){
     } else {
         $row = mysqli_fetch_assoc($query);
         $level = $row['level'];
+		$sebagai = $row['status'];
         if ($level === 'User'){
             $_SESSION['status']="Active";
             $_SESSION['nuha'] =$pass;
             $_SESSION['mylevel'] =$level;
             $_SESSION['username'] =$username;
+			$_SESSION['sebagai'] =$sebagai;	
             header("location:Page/View/dashboard.php");
             // header("location:./test.php");
         } else {
             $_SESSION['status']="Active";
             $_SESSION['aris'] ='TRUE';
+			$_SESSION['username'] =$username;
             $_SESSION['mylevel'] =$level;
             header("location:Page/View/dashboard.php");
             echo "Admin";
