@@ -31,15 +31,18 @@ require '../Include/Connect/Connections.php';
                 if($insert){
                     move_uploaded_file($file_tmp, '../Include/Image/berkas/'.$berkas);
                     return true;
-                    echo 'FILE BERHASIL DI UPLOAD';
+                   	echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
                 }else{
-                    echo 'GAGAL MENGUPLOAD GAMBAR';
+                   // echo 'GAGAL MENGUPLOAD GAMBAR';
+					echo "<script>alert('GAGAL MENGUPLOAD GAMBAR'); window.location.href='peserta.php'</script>";
                 }
             }else{
-                echo 'UKURAN FILE TERLALU BESAR';
+               // echo 'UKURAN FILE TERLALU BESAR';
+				echo "<script>alert('UKURAN FILE TERLALU BESAR'); window.location.href='peserta.php'</script>";
             }
         }else{
-            echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+			echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='peserta.php'</script>";
+           // echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
         }
         // echo $id_peserta ." ".$id_seminar . " ".$id_berkas;
     } else if (isset($_POST['Submitp'])){
@@ -62,13 +65,13 @@ require '../Include/Connect/Connections.php';
                  //   echo 'FILE BERHASIL DI UPLOAD';
 					echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
                 }else{
-                    echo 'GAGAL MENGUPLOAD GAMBAR';
+                  echo "<script>alert('GAGAL MENGUPLOAD GAMBAR'); window.location.href='peserta.php'</script>";
                 }
             }else{
-                echo 'UKURAN FILE TERLALU BESAR';
+               echo "<script>alert('UKURAN FILE TERLALU BESAR'); window.location.href='peserta.php'</script>";
             }
         }else{
-            echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+            echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='peserta.php'</script>";
         }
         // echo $id_peserta ." ".$id_seminar . " ".$id_berkas;
     }

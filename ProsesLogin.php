@@ -23,7 +23,7 @@ if (ISSET ($_POST['submit'])){
             // header("location:./test.php");
         } else {
             $_SESSION['status']="Active";
-            $_SESSION['aris'] ='TRUE';
+            $_SESSION['sebagai'] = 'Admin';
 			$_SESSION['username'] =$username;
             $_SESSION['mylevel'] =$level;
             header("location:Page/View/dashboard.php");

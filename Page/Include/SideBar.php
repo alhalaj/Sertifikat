@@ -28,7 +28,7 @@ if($_SESSION['status']!="Active"){
                         <a >
                             <?php
                              //echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
-							 echo   $_SESSION['sebagai'] =="Admin" ? "Admin":$_SESSION['sebagai'];
+							 echo   $_SESSION['sebagai'] == "Admin" ? "Admin" : $_SESSION['sebagai'];
                             ?>
                         </a>
                         
@@ -76,7 +76,7 @@ if($_SESSION['status']!="Active"){
                     <li>
                         <a href="../View/Peserta.php">
                             <i class="material-icons">speaker_notes</i>
-                            <p>pilih Seminar</p>
+                            <p>pilih Seminar dan upload<br> bukti bayar</p>
                         </a>
                     </li>
                     <li>
@@ -88,7 +88,7 @@ if($_SESSION['status']!="Active"){
 					<li>
                         <a href="../View/profile.php">
                             <i class="material-icons">settings</i>
-                            <p>Setting</p>
+                            <p>Setting Profile</p>
                         </a>
                     </li>
                     <li>

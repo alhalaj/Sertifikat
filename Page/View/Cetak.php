@@ -1,10 +1,26 @@
+<?php
+
+error_reporting(0)
+
+?>
 <!doctype html>
 <html lang="en">
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/forms/regular.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:33:48 GMT -->
 <head>
     <?php 
+		
         require '../Include/Header.php';
-        require '../Include/Connect/Connections.php'
+        require '../Include/Connect/Connections.php';
+		require '../Include/lock.php';
+        require '../Include/Header.php';
+      
+		 
+       		
+        if($_SESSION['status']!="Active"){
+            header ('location:../../login.php');
+            exit(); 
+         } else{
+    
     ?>
     
 </head>
@@ -17,56 +33,49 @@
             <div class="content">
             <div class="container-fluid">
                     <div class="row">
+					
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-icon" data-background-color="purple">
-                                    <i class="material-icons">assignment</i>
+                                <div class="card-header card-header-primary" data-background-color="purple">
+                                    <i class="material-icons">print</i> 
+												  Cetak Sertifikat 
+			
+                                    
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="card-title">Data Peserta
-                                    </h4>
-                                    <div class="toolbar">
-                                        <!--        Here you can write extra buttons/actions for the toolbar              -->
-                                    </div>
-                                    <div class="material-datatables">                                       
-                                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>Nomor Registrasi</th>
-                                                    <th>Nama</th>
-                                                    <th>Seminar</th>
-                                                    <th>Tanggal daftar</th>
-                                                    <th>Status</th>
-                                                    <th class="disabled-sorting text-right">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                   
+                                    
+                                   
                                             <?php
-                                                 $query = "SELECT * FROM peserta";
+												$user = $_SESSION['username'];
+                                                 $query = "SELECT * FROM peserta where username = '$user'";
                                                  $data  = $con->query($query);
                                                  While ($row = mysqli_fetch_object($data))
                                                 {
                                                     $name = $row->nama; 
+													$status = $row->status; 
                                                 ?>
-                                                <tr>
-                                                    <td><?php echo $row->no_registrasi; ?></td>
-                                                    <td><?php echo $name; ?></td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td class="text-right">
-                                                        <!-- <a href="#" class="btn btn-simple btn-info btn-icon like"><i class="material-icons">favorite</i></a>
-                                                        <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                                        <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a> -->
-                                                        <form action="Certificate.php" method="post">
+                                               <center>
+											     <h3>   Nama   : <?php echo "$name";?><br>
+											   
+													Status : <?php echo "$status";?>
+													</h3><br>
+											   
+											   <a href="cetak/cetak_serti.php?id=<?= $d['no_registrasi']?>" target="_blank" >
+													<button type="button" rel="tooltip" class="btn btn-info">
+											  <i class="material-icons">print</i> Cetak Sertifikat
+											</button></a>
+							
+												</center>
+							
+                                                   <!--     <form action="Certificate.php" method="post">
                                                         <input type="hidden" name="namacetak" value="<?php echo "$name";?>">
                                                         <button class="btn btn-just-icon btn-simple btn-twitter" data-toggle="tooltip" data-placement="bottom" title="Cetak Sertifikat">
-                                                <i class="fa fa-print"></i>
-                                            </button>
-                                                        </form> 
+                                                       <i class="fa fa-print"></i>
+                                                      </button>
+                                                        </form>  -->
 							
-                                                    </td>
-                                                </tr>
+                                                  
                                                 <?php 
                                                 }
                                                 $con -> close();
@@ -80,6 +89,7 @@
                             <!--  end card  -->
                         </div>
                         <!-- end col-md-12 -->
+						
                     </div>
                     <!-- end row -->
                 </div>
@@ -92,4 +102,9 @@
 <!--   Core JS Files   -->
 <?php require '../Include/Js.php'; ?>
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/forms/regular.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:33:48 GMT -->
+<?php
+// session_unset();
+//  session_destroy();
+		 }
+?>
 </html>
