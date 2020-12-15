@@ -11,7 +11,7 @@ $result = mysqli_query($con,$query);
         <form action="Delete.php" method="POST" role="form">
         <p style="font-weight: bold; font-weight: 900;"> Apakah Anda Yakin Menghapus <?php echo $row["nama_seminar"]; ?>  ? </p>
                 <!-- <input type="text" class="form-control" name ="seminar" value ="" autocomplete="off" disabled \> -->
-                <input type="hidden" class="form-control" name ="sem_id" value ="<?php echo base64_encode($row["id_seminar"]); ?>" autocomplete="off">
+                <input type="text" class="form-control" name ="sem_id" value ="<?php echo $row["id_seminar"]; ?>" autocomplete="off">
        
         <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

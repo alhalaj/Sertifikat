@@ -53,7 +53,7 @@
                                                     <td><?php echo $row->keterangan; ?></td>
                                                     <td class="text-right">
                                                     <input type="button" name="edit" value="Edit" id="<?php echo base64_encode($row->id_seminar); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-info btn-xs edit_data" />
-                                                    <input type="button" name = "delete" value ="Delete" id="<?php echo base64_encode($row->id_seminar); ?>" data-toggle="modal" data-target="#data_Modal1" class="btn btn-xs btn-danger hapus"/>
+                                                    <input type="button" name ="delete" value ="Delete" id="<?php echo base64_encode($row->id_seminar); ?>" data-toggle="modal" data-target="#data_Modal1" class="btn btn-xs btn-danger hapus"/>
                                                     </td>
                                                 </tr>
                                                 <?php 
@@ -102,7 +102,8 @@
 							</span>
 							<div class="form-group label-floating">
 								<label class="control-label">Tanggal Seminar</label>
-								<input type="text" class="form-control datepicker"  name="tanggal" autocomplete="off"/>
+								  <input type="text" class="form-control datetimepicker" value="21/06/2018"/  name="tanggal" autocomplete="off"/>
+							<!--	<input type="date" class="form-control datepicker"  name="tanggal" autocomplete="off"/> -->
 								</div>
 							</div>
 							<div class="input-group">
@@ -187,6 +188,20 @@
                 }  
            });  
       });  
- });  
+ });
+
+$('.datetimepicker').datetimepicker({
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove'
+    }
+}); 
  </script>
 </html>
