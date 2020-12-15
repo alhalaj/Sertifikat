@@ -37,7 +37,7 @@ if($_SESSION['status']!="Active"){
                 <ul class="nav">
                     <li>
                         <a href="../View/dashboard.php">
-                            <i class="material-icons">dashboard</i>
+                            <i class="material-icons">home</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -47,7 +47,7 @@ if($_SESSION['status']!="Active"){
                     ?>
                     <li>
                         <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">image</i>
+                            <i class="material-icons">reorder</i>
                             <p>Master Data
                                 <b class="caret"></b>
                             </p>
@@ -55,10 +55,16 @@ if($_SESSION['status']!="Active"){
                         <div class="collapse" id="pagesExamples">
                             <ul class="nav">
                                 <li>
-                                    <a href="../View/Seminar.php">Data Seminar</a>
+                                    <a href="../View/Seminar.php">
+									<i class="material-icons">swap_vert</i>
+									 <p>Data Seminar</p>
+									</a>
                                 </li>
                                 <li>
-                                    <a href="../pages/timeline.html">Data User</a>
+                                    <a href="../View/DataPeserta.php">
+									<i class="material-icons">person</i>
+									 <p>Data Pesertar</p>
+									</a>
                                 </li>
                             </ul>
                         </div>
@@ -69,13 +75,13 @@ if($_SESSION['status']!="Active"){
                     ?>
                     <li>
                         <a href="../View/Peserta.php">
-                            <i class="material-icons">image</i>
-                            <p>Pendaftaran Seminar</p>
+                            <i class="material-icons">speaker_notes</i>
+                            <p>pilih Seminar</p>
                         </a>
                     </li>
                     <li>
                         <a href="../View/Cetak.php">
-                            <i class="material-icons">image</i>
+                            <i class="material-icons">print</i>
                             <p>Cetak Sertifikat</p>
                         </a>
                     </li>
