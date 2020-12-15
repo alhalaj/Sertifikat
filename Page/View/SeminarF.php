@@ -59,7 +59,8 @@ require '../Include/Connect/Connections.php';
                 if($insert){
                     move_uploaded_file($file_tmp, '../Include/Image/berkas/'.$berkas);
                    // return true;
-                    echo 'FILE BERHASIL DI UPLOAD';
+                 //   echo 'FILE BERHASIL DI UPLOAD';
+					echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
                 }else{
                     echo 'GAGAL MENGUPLOAD GAMBAR';
                 }
