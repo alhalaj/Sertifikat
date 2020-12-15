@@ -85,6 +85,12 @@ if($_SESSION['status']!="Active"){
                             <p>Cetak Sertifikat</p>
                         </a>
                     </li>
+					<li>
+                        <a href="../View/profile.php">
+                            <i class="material-icons">settings</i>
+                            <p>Setting</p>
+                        </a>
+                    </li>
                     <li>
                         <a href="../../logout.php">
                             <i class="material-icons">power_settings_new</i>
