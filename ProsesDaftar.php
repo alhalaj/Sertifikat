@@ -15,30 +15,30 @@ if (isset($_POST['submit'])){
             if( $user === "0") {
                 $nama =  $_POST['fullname'];
                 $tempat_lahir = $_POST['tempatLahir'];
-                $tgl_lahir =  date('Y-m-d', strtotime($_POST['tglLahir']));
+             //   $tgl_lahir =  date('Y-m-d', strtotime($_POST['tglLahir']));
                 $jnis_kelamin =  $_POST['gender'];
-                $propinsi =  $_POST['wilayah'];
-                $alamat =  $_POST['alamat'];
-                $instansi =  $_POST['afiliasi'];
-                $skill =  $_POST['keahlian'];
-                $hp =  $_POST['telepon'];
+            //    $propinsi =  $_POST['wilayah'];
+             //   $alamat =  $_POST['alamat'];
+            //    $instansi =  $_POST['afiliasi'];
+             //   $skill =  $_POST['keahlian'];
+            //    $hp =  $_POST['telepon'];
                 // $foto =  $_POST['foto'];
                 $date = date('Y-m-d', strtotime($_POST['tanggal']));
                 $note = $_POST['keterangan'];
 
-                $ekstensi_diperbolehkan	= array('png','jpg');
-                $foto = $_FILES['foto']['name'];
+            //    $ekstensi_diperbolehkan	= array('png','jpg');
+            //    $foto = $_FILES['foto']['name'];
                 // $today = date("Y-m-d");
-                $x = explode('.', $foto);
-                $ekstensi = strtolower(end($x));
-                $ukuran	= $_FILES['foto']['size'];
-                $file_tmp = $_FILES['foto']['tmp_name'];
-                $path = 'Page/Include/Image/foto/';
-                if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-                    if($ukuran < 1044070){
+            //    $x = explode('.', $foto);
+            //    $ekstensi = strtolower(end($x));
+            //    $ukuran	= $_FILES['foto']['size'];
+            //    $file_tmp = $_FILES['foto']['tmp_name'];
+            //    $path = 'Page/Include/Image/foto/';
+             //    if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+              //      if($ukuran < 1044070){
                             $query ="INSERT INTO users (`username`,`password`,`email`) VALUES ('$username','$password','$email');";
-                            $query .="INSERT INTO peserta (`username`,`nama`,`tempat_lahir`,`tgl_lahir`,`jnis_kelamin`,`propinsi`,`alamat`,`instansi`,`skill`,`hp`,`foto`) VALUES
-                            ('$username','$nama','$tempat_lahir','$tgl_lahir','$jnis_kelamin','$propinsi','$alamat','$instansi','$skill','$hp','$foto')";
+                          $query .="INSERT INTO peserta (`username`,`nama`,`tempat_lahir`,`tgl_lahir`,`jnis_kelamin`,`propinsi`,`alamat`,`instansi`,`skill`,`hp`,`foto`) VALUES
+                            ('$username','$nama','','','$jnis_kelamin','','','','','','')";
                             // echo $query;
                             $insert = mysqli_multi_query($con,$query);
                             if($insert){
@@ -46,16 +46,16 @@ if (isset($_POST['submit'])){
                                     $status = base64_encode('status');
                                     $url = base64_encode('success');
                                     header("location:login_aksi.php?".$status."=".$url);
-                                } else {
+               //               } else {
                                     // echo 'Error : '.$insert->error." ".$query;
                                     // echo 'Error : '.mysqli_error($con);
-                                }
-                        }else{
-                            echo 'UKURAN FILE TERLALU BESAR';
-                        }        
-                }else{
-                    echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
-                }
+               //                 }
+                //        }else{
+                ////            echo 'UKURAN FILE TERLALU BESAR';
+                //        }        
+           //     }else{
+            //        echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+            //    }
             } else {
                 $status = base64_encode('status');
                 $url = base64_encode('failed');
@@ -66,6 +66,7 @@ if (isset($_POST['submit'])){
         $url = base64_encode('notsuccess');
         header("location:daftar.php?".$status."=".$url);
     }
+}
 }
 $con->dba_close();
 ?>
