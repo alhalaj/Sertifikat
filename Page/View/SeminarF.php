@@ -44,7 +44,7 @@ require '../Include/Connect/Connections.php';
 			echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='peserta.php'</script>";
            // echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
         }
-        // echo $id_peserta ." ".$id_seminar . " ".$id_berkas;
+        echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
     } else if (isset($_POST['Submitp'])){
         $ekstensi_diperbolehkan	= array('png','jpg');
         $id_peserta = $_POST['peserta'];
@@ -73,6 +73,6 @@ require '../Include/Connect/Connections.php';
         }else{
             echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='peserta.php'</script>";
         }
-        // echo $id_peserta ." ".$id_seminar . " ".$id_berkas;
+        echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
     }
 ?>

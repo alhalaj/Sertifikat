@@ -53,29 +53,24 @@ error_reporting(0)
                                                  While ($row = mysqli_fetch_object($data))
                                                 {
                                                     $name = $row->nama; 
-													$status = $row->status; 
+													$status = $row->status;
+													
+													
                                                 ?>
-                                               <center>
-											     <h3>   Nama   : <?php echo "$name";?><br>
+                                            
+							<center>
+                                                      <form action="Certificate.php" method="post">
+													    <h3>   Nama   : <?php echo "$name";?><br>
 											   
 													Status : <?php echo "$status";?>
 													</h3><br>
-											   
-											   <a href="cetak/cetak_serti.php?id=<?= $d['no_registrasi']?>" target="_blank" >
-													<button type="button" rel="tooltip" class="btn btn-info">
-											  <i class="material-icons">print</i> Cetak Sertifikat
-											</button></a>
-							
-												</center>
-							
-                                                   <!--     <form action="Certificate.php" method="post">
                                                         <input type="hidden" name="namacetak" value="<?php echo "$name";?>">
-                                                        <button class="btn btn-just-icon btn-simple btn-twitter" data-toggle="tooltip" data-placement="bottom" title="Cetak Sertifikat">
-                                                       <i class="fa fa-print"></i>
+                                                        <button type="submit" rel="tooltip" class="btn btn-info"title="Cetak Sertifikat">
+                                                       <i class="fa fa-print"></i>Cetak sertifikat
                                                       </button>
-                                                        </form>  -->
+                                                        </form>  
 							
-                                                  
+                                                  </center>
                                                 <?php 
                                                 }
                                                 $con -> close();

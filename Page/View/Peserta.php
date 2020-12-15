@@ -59,6 +59,7 @@ error_reporting(0)
                                                     <th>Tanggal Seminar</th>
                                                     <th>Tanggal daftar</th>
                                                     <th>Status</th>
+												
                                                     <!-- <th>Bukti Upload</th> -->
                                                     <th class="disabled-sorting text-right">Actions</th>
                                                 </tr>
@@ -81,7 +82,8 @@ error_reporting(0)
                                                     <td><?php echo $row->nama_seminar; ?></td>
                                                     <td><?php echo $row->tgl_pelaksana; ?></td>
                                                     <td><?php echo $row->tgl_daftar; ?></td>
-                                                    <td><?php echo $status === 'false' ? "Belum Aktif" : "Aktif"; ?></td>
+                                                    <td><?php echo $siap = $status === 'false' ? "Belum Aktif" : "Aktif"; ?></td>
+													
                                                     <td class="text-right">
                                                         <input type="button" name="edit" value="Edit" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-info btn-xs edit_data" />
                                                     <input type="button" name = "delete" value ="Delete" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal1" class="btn btn-xs btn-danger hapus"/>
@@ -137,8 +139,8 @@ error_reporting(0)
                                                     <td><?php echo $row1->tgl_pelaksana; ?></td>
                                                     <td><?php echo $row1->status== 'false' ? "Belum Diaktifasi":"Sudah Diaktifasi"; ?></td>
                                                     <td class="text-right">
-                                                        <input type="button" name="edit" value="Edit" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-info btn-xs edit_data" />
-                                                    <input type="button" name = "delete" value ="Delete" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal1" class="btn btn-xs btn-danger hapus"/>
+                                                    <!--    <input type="button" name="edit" value="Edit" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-info btn-xs edit_data" />  -->
+                                                    <input type="button" name = "delete" value ="Delete" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-xs btn-danger hapus"/>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -172,7 +174,7 @@ error_reporting(0)
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Tambah Peserta</h5>
+            <h5 class="modal-title" id="data_Modal0">Tambah Peserta</h5>
         </div>
         <div class="modal-body">
             <div class="card-content">
@@ -258,7 +260,7 @@ error_reporting(0)
         <div class="modal-content">  
         <div class="modal-header">  
             <button type="button" class="close" data-dismiss="modal">&times;</button>  
-            <h4 class="modal-title">Hapus Peserta</h4>  
+            <h4 class="modal-title">Hapus seminar</h4>  
         </div>  
         <div class="modal-body">
         <div id="detail1"></div>  
