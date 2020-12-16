@@ -40,7 +40,7 @@ error_reporting(0)
 						?>
 						</div>
 	                <form class="form-signin" method="post" action="ProsesLogin.php">
-		                <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
+		                <input type="text" class="form-control" name="email" placeholder="Username" required autofocus>
 		                <input type="password" class="form-control" name="password" placeholder="Password" required>
 		                <button class="btn btn-lg btn-success btn-block" type="submit" name="submit">
 		                    Masuk</button>
