@@ -32,20 +32,20 @@ require '../Include/Connect/Connections.php';
                 if($insert){
                     move_uploaded_file($file_tmp, '../Include/Image/berkas/'.$berkas);
                     return true;
-                   	echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
+                   	echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='Peserta.php'</script>";
                 }else{
                    // echo 'GAGAL MENGUPLOAD GAMBAR';
-					echo "<script>alert('GAGAL MENGUPLOAD GAMBAR'); window.location.href='peserta.php'</script>";
+					echo "<script>alert('GAGAL MENGUPLOAD GAMBAR'); window.location.href='Peserta.php'</script>";
                 }
             }else{
                // echo 'UKURAN FILE TERLALU BESAR';
-				echo "<script>alert('UKURAN FILE TERLALU BESAR'); window.location.href='peserta.php'</script>";
+				echo "<script>alert('UKURAN FILE TERLALU BESAR'); window.location.href='Peserta.php'</script>";
             }
         }else{
-			echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='peserta.php'</script>";
+			echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='Peserta.php'</script>";
            // echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
         }
-        echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
+        echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='Peserta.php'</script>";
     } else if (isset($_POST['Submitp'])){
         $ekstensi_diperbolehkan	= array('png','jpg');
         $id_peserta = $_POST['peserta'];
@@ -66,16 +66,16 @@ require '../Include/Connect/Connections.php';
                     move_uploaded_file($file_tmp, '../Include/Image/berkas/'.$berkas);
                    // return true;
                  //   echo 'FILE BERHASIL DI UPLOAD';
-					echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
+					echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='Peserta.php'</script>";
                 }else{
-                  echo "<script>alert('GAGAL MENGUPLOAD GAMBAR'); window.location.href='peserta.php'</script>";
+                  echo "<script>alert('GAGAL MENGUPLOAD GAMBAR'); window.location.href='Peserta.php'</script>";
                 }
             }else{
-               echo "<script>alert('UKURAN FILE TERLALU BESAR'); window.location.href='peserta.php'</script>";
+               echo "<script>alert('UKURAN FILE TERLALU BESAR'); window.location.href='Peserta.php'</script>";
             }
         }else{
-            echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='peserta.php'</script>";
+            echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='Peserta.php'</script>";
         }
-        echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='peserta.php'</script>";
+        echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='Peserta.php'</script>";
     }
 ?>
