@@ -28,7 +28,9 @@ if($_SESSION['status']!="Active"){
                         <a >
                             <?php
                              //echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
-							 echo   $_SESSION['sebagai'] == "Admin" ? "Admin" : $_SESSION['sebagai'];
+							 $query = $con->query("SELECT status FROM peserta WHERE username = '$user'");
+                             $row2 = mysqli_fetch_assoc($query);
+							 echo   $_SESSION['sebagai'] == "Admin" ? "Admin" : $row2['status'];
                             ?>
                         </a>
                         

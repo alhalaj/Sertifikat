@@ -1,5 +1,6 @@
 <?php
-echo 	$nama = $_POST['namacetak'];
+ 	$nama = $_POST['namacetak'];
+	$status = $_POST['status'];
 	// echo $nama;
 	if (empty($nama)) {
 		$gambar = "../Include/Image/1.jpg";
@@ -8,12 +9,14 @@ echo 	$nama = $_POST['namacetak'];
 		else {
 		$gambar = "../Include/Image/sertifikat.jpg";
 	}
-	$image = imagecreatefromjpeg('sertifikat.jpg');
+	if($status === "Pemakalah")
+	{
+	$image = imagecreatefrompng('pemakalah.png');
 	$white = imageColorAllocate($image, 255, 255, 255);
-	$black = imageColorAllocate($image, 0, 0, 0);
+	$black = imageColorAllocate($image, 51, 51, 51);
 	//$font = __DIR__ . '/AQuinchoScript_PersonalUse.ttf';
-	$font=__DIR__ . '/BRUSHSCI.TTF';
-	$size = 42;
+	$font=__DIR__ . '/Garamond.ttf';
+	$size = 85;
 	//definisikan lebar gambar agar posisi teks selalu ditengah berapapun jumlah hurufnya
 	$image_width = imagesx($image);  
 	//membuat textbox agar text centered
@@ -22,14 +25,39 @@ echo 	$nama = $_POST['namacetak'];
 	$text_height = $text_box[3]-$text_box[1];
 	$x = ($image_width/2) - ($text_width/2);
 	//generate sertifikat beserta namanya
-	imagettftext($image, $size, 0, $x, 400, $black, $font, $nama);
+	imagettftext($image, $size, 0, $x, 530, $black, $font, $nama);
 	$file=$nama;
-		imagejpeg($image,"serti/".$file.".jpg");
+		imagejpeg($image,"serti/".$file.".png");
 		imagedestroy($image);
-	echo "<script>alert('Sertifikat Berhasil dcetak'); window.location.href='serti/".$file.".jpg.'</script>";	
+	echo "<script>alert('Sertifikat Berhasil dcetak'); 
+	window.open('serti/".$file.".png');
+	window.location.href='Cetak.php'</script>";
 	//tampilkan di browser
 //	header("Content-type:  image/jpeg");
 //	imagejpeg($image);
 //	imagedestroy($image);
+	} else {
+	$image = imagecreatefrompng('peserta.png');
+	$white = imageColorAllocate($image, 255, 255, 255);
+	$black = imageColorAllocate($image, 51, 51, 51);
+	//$font = __DIR__ . '/AQuinchoScript_PersonalUse.ttf';
+	$font=__DIR__ . '/Garamond.ttf';
+	$size = 85;
+	//definisikan lebar gambar agar posisi teks selalu ditengah berapapun jumlah hurufnya
+	$image_width = imagesx($image);  
+	//membuat textbox agar text centered
+	$text_box = imagettfbbox($size,0,$font,$nama);
+	$text_width = $text_box[2]-$text_box[0]; // lower right corner - lower left corner
+	$text_height = $text_box[3]-$text_box[1];
+	$x = ($image_width/2) - ($text_width/2);
+	//generate sertifikat beserta namanya
+	imagettftext($image, $size, 0, $x, 530, $black, $font, $nama);
+	$file=$nama;
+		imagejpeg($image,"serti/".$file.".png");
+		imagedestroy($image);
+	echo "<script>alert('Sertifikat Berhasil dcetak'); 
+	window.open('serti/".$file.".png');
+	window.location.href='Cetak.php'</script>";
+	}
 
 ?>

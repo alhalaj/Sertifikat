@@ -126,7 +126,7 @@ error_reporting(0)
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $query1 ="SELECT s.nama_seminar, s.tgl_pelaksana, ps.status FROM pendaftaran_seminar as ps 
+                                                $query1 ="SELECT s.nama_seminar, s.tgl_pelaksana, ps.status, ps.id_pendaftaran FROM pendaftaran_seminar as ps 
                                                 left join seminar as s ON s.id_seminar = ps.id_seminar 
                                                 left join peserta as p ON p.no_registrasi = ps.id_peserta 
                                                 where p.username = '$user'";
@@ -136,11 +136,17 @@ error_reporting(0)
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $row1->nama_seminar; ?></td>
-                                                    <td><?php echo $row1->tgl_pelaksana; ?></td>
+                                                    <td><?php echo $row1->id_pendaftaran; ?></td>
+													<?php $id= $row1->id_pendaftaran; ?>
                                                     <td><?php echo $row1->status== 'false' ? "Belum Diaktifasi":"Sudah Diaktifasi"; ?></td>
                                                     <td class="text-right">
-                                                    <!--    <input type="button" name="edit" value="Edit" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-info btn-xs edit_data" />  -->
-                                                    <input type="button" name = "delete" value ="Delete" id="<?php echo base64_encode($row->id_pendaftaran); ?>" data-toggle="modal" data-target="#data_Modal" class="btn btn-xs btn-danger hapus"/>
+                                                       
+                                                  
+													<a href="aksi_peserta.php?id=<?= $id ?>" 
+													onclick="return confirm('Anda yakin akan menghapus data ini?')">
+													<button type="button" class="btn btn-xs btn-danger hapus">
+													  <i class="material-icons">close</i>
+													</button></a>
                                                     </td>
                                                 </tr>
                                                 <?php

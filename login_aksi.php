@@ -34,10 +34,13 @@ error_reporting(0)
 	                <img class="profile-img" src="https://munasbauai.com/templates/images/ojs_brand.png"
 	                    alt="">
 						<div class="text-center">
+						
 						<?php
 							$status = base64_decode($_GET['c3RhdHVz']);
 							echo $status == 'success' ? 'Pendaftaran Sukses':($status == 'failed' ? 'Username atau Password Anda Salah':'');
 						?>
+						<br>
+						login gunakan username dan password 
 						</div>
 	                <form class="form-signin" method="post" action="ProsesLogin.php">
 		                <input type="text" class="form-control" name="email" placeholder="Username" required autofocus>

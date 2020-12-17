@@ -20,6 +20,7 @@ error_reporting(0)
             header ('location:../../login.php');
             exit(); 
          } else{
+		 
     
     ?>
     
@@ -47,31 +48,61 @@ error_reporting(0)
                                     
                                    
                                             <?php
-												$user = $_SESSION['username'];
+											
+												$user = $_SESSION['username'];												
+												 																								 
                                                  $query = "SELECT * FROM peserta where username = '$user'";
                                                  $data  = $con->query($query);
                                                  While ($row = mysqli_fetch_object($data))
                                                 {
                                                     $name = $row->nama; 
 													$status = $row->status;
+													$idpeserta = $row->no_registrasi; 
 													
 													
                                                 ?>
                                             
 							<center>
-                                                      <form action="Certificate.php" method="post">
-													    <h3>   Nama   : <?php echo "$name";?><br>
-											   
-													Status : <?php echo "$status";?>
+                                                      
+													    <?php
+											
+																							
+												 																								 
+                                                 $query1 = "SELECT * FROM pendaftaran_seminar where id_peserta = '$idpeserta'";
+                                                 $data1  = $con->query($query1);
+                                                 While ($row1 = mysqli_fetch_object($data1))
+                                                {                                                 
+													 $bayar = $row1->status;
+												     
+													if ($bayar === "false") 
+													{
+														echo "<button  rel='tooltip' class='btn btn-info' title='silahkan hubungi admin untuk verivikasi'>
+                                                       <i class='fa fa-payment'></i>belum di verivikasi
+                                                      </button>"
+									;
+													}else {
+                                                ?>
+												<form action="Certificate.php" method="post">
+                                            <h3> 
+														Nama   : <?php echo "$name";?><br>
+															   Acara  : Multaqa Nasional Bahasa Arab 2020 <br>
+													            Status : <?php echo "$status";?><br>
+																
 													</h3><br>
                                                         <input type="hidden" name="namacetak" value="<?php echo "$name";?>">
+														<input type="hidden" name="status" value="<?php echo "$status";?>">
                                                         <button type="submit" rel="tooltip" class="btn btn-info"title="Cetak Sertifikat">
                                                        <i class="fa fa-print"></i>Cetak sertifikat
                                                       </button>
                                                         </form>  
 							
                                                   </center>
-                                                <?php 
+													     
+												
+											<?php }
+													
+												} 
+												
                                                 }
                                                 $con -> close();
                                                 ?>
@@ -87,6 +118,7 @@ error_reporting(0)
 						
                     </div>
                     <!-- end row -->
+				
                 </div>
             </div>
             <?php include_once '../Include/Footer.php'; ?>
