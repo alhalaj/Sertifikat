@@ -30,8 +30,8 @@
 		imagejpeg($image,"serti/".$file.".png");
 		imagedestroy($image);
 	echo "<script>alert('Sertifikat Berhasil dcetak'); 
-	window.open('serti/".$file.".png');
-	window.location.href='Cetak.php'</script>";
+	window.location.href='serti/".$file.".png';
+	</script>";
 	//tampilkan di browser
 //	header("Content-type:  image/jpeg");
 //	imagejpeg($image);
@@ -56,8 +56,8 @@
 		imagejpeg($image,"serti/".$file.".png");
 		imagedestroy($image);
 	echo "<script>alert('Sertifikat Berhasil dcetak'); 
-	window.open('serti/".$file.".png');
-	window.location.href='Cetak.php'</script>";
+	window.location.href='serti/".$file.".png';
+	</script>";
 	}
 
 ?>
