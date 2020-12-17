@@ -51,27 +51,33 @@ error_reporting(0)
 											
 												$user = $_SESSION['username'];												
 												 																								 
-                                                
+                                                 $query = "SELECT * FROM peserta where username = '$user'";
+                                                 $data  = $con->query($query);
+                                                 While ($row = mysqli_fetch_object($data))
+                                                {
+                                                    $name = $row->nama; 
+													$status = $row->status;
+													$idpeserta = $row->no_registrasi; 
+													
+													
+                                                ?>
+                                            
+							<center>
+                                                      
+													    <?php
 											
 																							
-												 $query1 =" SELECT ps.id_pendaftaran, ps.id_peserta, ps.tgl_daftar, ps.bukti_byr, ps.status, p.nama, s.nama_seminar, s.tgl_pelaksana 
-                                                 FROM pendaftaran_seminar as ps 
-                                                 LEFT JOIN peserta as p ON p.no_registrasi = ps.id_peserta 
-                                                 LEFT JOIN seminar as s ON s.id_seminar = ps.id_seminar
-												 AND p.username= '$user' ";																								 
-                                              //   $query1 = "SELECT * FROM pendaftaran_seminar where id_peserta = '$idpeserta'";
+												 																								 
+                                                 $query1 = "SELECT * FROM pendaftaran_seminar where id_peserta = '$idpeserta'";
                                                  $data1  = $con->query($query1);
                                                  While ($row1 = mysqli_fetch_object($data1))
                                                 {                                                 
 													 $bayar = $row1->status;
-													 $nama_sem = $row1->nama_seminar;
-													 $name = $row1->nama;
-													 $status = $row1->status;
 												     
 													if ($bayar === "false") 
 													{
 														echo "<button  rel='tooltip' class='btn btn-info' title='silahkan hubungi admin untuk verivikasi'>
-                                                       <i class='fa fa-payment'></i> <?php echo '$nama_sem';?> belum di verivikasi
+                                                       <i class='fa fa-payment'></i>belum di verivikasi
                                                       </button>"
 									;
 													}else {
@@ -79,7 +85,7 @@ error_reporting(0)
 												<form action="Certificate.php" method="post">
                                             <h3> 
 														Nama   : <?php echo "$name";?><br>
-															   Acara  :<?php echo "$nama_sem";?>  <br>
+															   Acara  : Multaqa Nasional Bahasa Arab 2020 <br>
 													            Status : <?php echo "$status";?><br>
 																
 													</h3><br>
@@ -95,7 +101,7 @@ error_reporting(0)
 												
 											<?php }
 													
-												
+												} 
 												
                                                 }
                                                 $con -> close();
