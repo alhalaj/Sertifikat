@@ -19,6 +19,7 @@ require '../Include/Connect/Connections.php';
         $id_peserta = $_POST['peserta'];
         $id_seminar = $_POST['seminar'];
         $berkas = $_FILES['berkas']['name'];
+		$berkas = "$id_peserta". $berkas ; 
         $today = date("Y-m-d");
         $x = explode('.', $berkas);
         $ekstensi = strtolower(end($x));
@@ -50,11 +51,13 @@ require '../Include/Connect/Connections.php';
         $id_peserta = $_POST['peserta'];
         $id_seminar = $_POST['seminar'];
         $berkas = $_FILES['berkas']['name'];
+		$berkas = $id_peserta.$berkas ; 
         $today = date("Y-m-d");
         $x = explode('.', $berkas);
         $ekstensi = strtolower(end($x));
         $ukuran	= $_FILES['berkas']['size'];
         $file_tmp = $_FILES['berkas']['tmp_name'];
+		
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
             if($ukuran < 1044070){			
                 $query = "INSERT INTO pendaftaran_seminar (`id_seminar`,`id_peserta`,`bukti_byr`,`tgl_daftar`)VALUES('$id_seminar','$id_peserta','$berkas','$today')";
