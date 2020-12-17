@@ -88,7 +88,7 @@ if($_SESSION['status']!="Active"){
                         </a>
                     </li>
                     <li>
-                        <a href="../View/Cetak.php">
+                        <a href="../View/CetakV2.php">
                             <i class="material-icons">print</i>
                             <p>Cetak Sertifikat</p>
                         </a>
