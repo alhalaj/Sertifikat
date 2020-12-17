@@ -1,4 +1,8 @@
+<?php
 
+error_reporting(0)
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.png" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Pendaftaran Anggota Baru IMLA</title>
+    <title>Pendaftaran</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -30,20 +34,20 @@
 	        <div class="col-sm-12 col-md-8 col-lg-10 col-lg-offset-1">
 
 				<div class="card" style="margin-top: 50px">
-                    <div class="card-header" data-background-color="blue">
-                        <h4 >Register Anggota Baru IMLA</h4>
+                    <div class="card-header" data-background-color="green">
+                        <h4 >Register Anggota Baru</h4>
                         <?php
                         $status = base64_decode($_GET['c3RhdHVz']);
                         // $message = $_GET['status'];
                         echo $status == 'notsuccess' ? 'Input Tidak Boleh Kosong' : ( $status == 'failed' ?'Username Sudah Ada':
-                        '<p class="category">Isi Form pendaftaran akun dengan benar, data ini akan digunakan untuk login akun anda</p>');
+                        '<p class="category">Username dan passwor digunakan untuk login</p>');
                         // echo $message == base64_decode('notsuccess') ? 'Input Tidak Boleh Kosong' : ( $message == base64_decode('failed') ?'Username Sudah Ada':
                         // '<p class="category">Isi Form pendaftaran akun dengan benar, data ini akan digunakan untuk login akun anda</p>');
                         ?>
                     </div>
                     <div class="card-content">
                     <!-- onsubmit="return checkForm(this);" -->
-                        <form method="post"  action="Daftar.php" enctype="multipart/form-data">
+                        <form method="post"  action="ProsesDaftar.php" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
@@ -52,14 +56,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+							 <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
-                                        <label class="control-label">Nama Lengkap</label>
-                                        <input type="text" class="form-control" name="fullname" required autofocus>
+                                        <label class="control-label">Password</label>
+                                        <input type="password" class="form-control" name="password" required>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                           
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
@@ -68,31 +72,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+							 <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
-                                        <label class="control-label">Password</label>
-                                        <input type="password" class="form-control" name="password" required>
+                                        <label class="control-label">Nama Lengkap <i>(ditulis di dalam sertifikat)</i></label>
+                                        <input type="text" class="form-control" name="fullname" required autofocus>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Tempat Lahir</label>
-                                        <input type="text" class="form-control" name="tempatLahir" required autofocus>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label">Tanggal Lahir</label>
-                                        <input type="date" class="form-control" name="tglLahir" required autofocus>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
+							<div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Jenis Kelamin</label>
@@ -105,7 +93,38 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+							<div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Status Peserta</label>
+                                        <select name="status" class="form-control" required autofocus>
+                                            <option value="" disabled selected>-- Pilih Status Peserta --</option>
+                                        
+                                            <option value="Pemakalah">Pemakalah</option>
+                                            <option value="Non Pemakalah">Non Pemakalah</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                       <!--       <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Tempat Lahir</label>
+                                        <input type="text" class="form-control" name="tempatLahir" required autofocus>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Tanggal Lahir</label>
+                                        <input type="date" class="form-control" name="tglLahir" required autofocus>
+                                    </div>
+                                </div>
+                            </div> -->
+                            
+                     <!--       <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Wilayah Provinsi IMLA Indonesia</label>
@@ -150,7 +169,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
@@ -189,16 +208,16 @@
                                         <label class="control-label">Upload Pasfoto Resmi Ukuran 3x4</label>
                                 </div>
                             </div>
-                            <input type="file" name="foto" id="foto" style="padding-left: 10px" required autofocus>
-                            <p><input type="checkbox" required name="terms" style="margin-left: 12px; margin-top: 15px"> <u>Dengan mengirim data ini saya bertangungjawab penuh atas data yang saya kirimkan</u></p>
+                            <input type="file" name="foto" id="foto" style="padding-left: 10px" required autofocus> -->
+                            <p><input type="checkbox" required name="terms" style="margin-left: 12px; margin-top: 15px"> Data yang saya isi sudah benar </p>
 
                             
 							<button type="submit" name="submit" class="btn btn-primary pull-right">Kirim <i class="fa fa-arrow-right"></i></button>
-                            
+							<a href="login.php" class="btn btn-danger pull-left"><i class="fa fa-arrow-left"></i> Batal</a>
 
                             
                             <div class="clearfix"></div>
-                        </form>
+                        </form>						
 
                     </div>
                 </div>

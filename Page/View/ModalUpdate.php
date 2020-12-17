@@ -27,7 +27,7 @@ if(isset($_POST["sem_id"]))
 		</span>
 		<div class="form-group label-floating">
 			<label class="control-label">Tanggal Seminar</label>
-			<input type="text" class="form-control datepicker"  name="tanggal" value ="<?php echo $row->tgl_pelaksana; ?>" autocomplete="off"/>
+			<input type="text" class="form-control datetimepicker"  name="tanggal" value ="<?php echo $row->tgl_pelaksana; ?>" autocomplete="off"/>
 			</div>
 		</div>
 		<div class="input-group">

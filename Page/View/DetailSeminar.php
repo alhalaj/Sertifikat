@@ -38,7 +38,7 @@ if($_SESSION['status']!="Active"){
         <i class="material-icons">face</i>
     </span>
     <div class="form-group label-floating">
-        <label class="control-label">Upload Bukti Bayar</label>
+        <label class="control-label">Upload Bukti Bayar <i>(file png /jpg dengan maksimal 1Mb)<i></label>
         <div class="fileinput fileinput-new text-center" data-provides="fileinput">                                               
                 <span class="btn btn-round btn-rose btn-file">
                     <span class="fileinput-new">Bukti Bayar</span>

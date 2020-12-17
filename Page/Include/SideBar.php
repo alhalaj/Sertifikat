@@ -6,12 +6,18 @@ if($_SESSION['status']!="Active"){
     header ('location:../../login.php');
     exit(); 
     } else{
-        $user = $_SESSION['username'];
+         $user = $_SESSION['username'];
 
         // $query ="SELECT * FROM users WHERE level ="
 ?>
+<<<<<<< HEAD
 <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../../assets/img/logo.jpg">           
 
+=======
+<div class="sidebar" data-active-color="green" data-background-color="black" data-image="../../assets/img/logo.jpg">           
+            
+            
+>>>>>>> main
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
@@ -27,7 +33,10 @@ if($_SESSION['status']!="Active"){
                         </a>
                         <a >
                             <?php
-                             echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
+                             //echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
+							 $query = $con->query("SELECT status FROM peserta WHERE username = '$user'");
+                             $row2 = mysqli_fetch_assoc($query);
+							 echo   $_SESSION['sebagai'] == "Admin" ? "Admin" : $row2['status'];
                             ?>
                         </a>
                         
@@ -36,7 +45,7 @@ if($_SESSION['status']!="Active"){
                 <ul class="nav">
                     <li>
                         <a href="../View/dashboard.php">
-                            <i class="material-icons">dashboard</i>
+                            <i class="material-icons">home</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -46,7 +55,7 @@ if($_SESSION['status']!="Active"){
                     ?>
                     <li>
                         <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">image</i>
+                            <i class="material-icons">reorder</i>
                             <p>Master Data
                                 <b class="caret"></b>
                             </p>
@@ -54,10 +63,16 @@ if($_SESSION['status']!="Active"){
                         <div class="collapse" id="pagesExamples">
                             <ul class="nav">
                                 <li>
-                                    <a href="../View/Seminar.php">Data Seminar</a>
+                                    <a href="../View/Seminar.php">
+									<i class="material-icons">swap_vert</i>
+									 <p>Data Seminar</p>
+									</a>
                                 </li>
                                 <li>
-                                    <a href="../pages/timeline.html">Data User</a>
+                                    <a href="../View/DataPeserta.php">
+									<i class="material-icons">person</i>
+									 <p>Data Pesertar</p>
+									</a>
                                 </li>
                             </ul>
                         </div>
@@ -68,14 +83,20 @@ if($_SESSION['status']!="Active"){
                     ?>
                     <li>
                         <a href="../View/Peserta.php">
-                            <i class="material-icons">image</i>
-                            <p>Pendaftaran Seminar</p>
+                            <i class="material-icons">speaker_notes</i>
+                            <p>pilih Seminar dan upload<br> bukti bayar</p>
                         </a>
                     </li>
                     <li>
                         <a href="../View/Cetak.php">
-                            <i class="material-icons">image</i>
+                            <i class="material-icons">print</i>
                             <p>Cetak Sertifikat</p>
+                        </a>
+                    </li>
+					<li>
+                        <a href="../View/profile.php">
+                            <i class="material-icons">settings</i>
+                            <p>Setting Profile</p>
                         </a>
                     </li>
                     <li>
