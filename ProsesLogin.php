@@ -10,10 +10,6 @@ if (ISSET ($_POST['submit'])){
     $stmt->bind_param("ss", $username,$pass); 
     $stmt->execute();
     $result = $stmt->get_result(); 
-//    print_r($result);
-    // while ($row = $result->fetch_assoc()) {
-    //     echo $row['username'];
-    // }
         if(mysqli_num_rows($result)==0){
             $status = base64_encode('status');
             $url = base64_encode('failed');
@@ -21,7 +17,6 @@ if (ISSET ($_POST['submit'])){
         } else {
             $row = mysqli_fetch_assoc($result);
             $level = $row['level'];
-            // echo $level;
             if ($level === 'User'){
                 $_SESSION['status']="Active";
                 $_SESSION['aris']='TRUE';
@@ -30,9 +25,7 @@ if (ISSET ($_POST['submit'])){
                 $_SESSION['username'] =$username;
                 $_SESSION['start'] = time();
                 $_SESSION['expire'] = $_SESSION['start'] + (30 * 30);
-            	// $_SESSION['sebagai'] =$sebagai;	
                 header("location:Page/View/dashboard.php");
-                // header("location:./test.php");
             } else {
                 $_SESSION['aris']='TRUE';
                 $_SESSION['status']="Active";
@@ -40,10 +33,9 @@ if (ISSET ($_POST['submit'])){
             	$_SESSION['username'] =$username;
                 $_SESSION['mylevel'] =$level;
                 header("location:Page/View/dashboard.php");
-                // echo "Admin";
             }
         } 
     }
     mysql_close($query); 
-	mysql_close($con);
+    mysql_close($con);
 ?>
