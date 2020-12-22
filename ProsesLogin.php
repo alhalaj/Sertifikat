@@ -4,7 +4,6 @@ require 'Page/Include/Connect/Connections.php';
 if (ISSET ($_POST['submit'])){
     $username = $_POST['email'];
     $pass = md5($_POST['password']);
-    // $query = $con->query("SELECT * FROM users WHERE username = '$username' AND password = '$pass'");
     $query = "SELECT * FROM users WHERE username = ? AND password = ?";
     $stmt = $con->prepare($query);
     $stmt->bind_param("ss", $username,$pass); 
