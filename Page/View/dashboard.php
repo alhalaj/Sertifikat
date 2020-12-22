@@ -1,12 +1,16 @@
 <?php
-error_reporting(0)
+// error_reporting(0)
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <?php 
-        require '../Include/lock.php';
+  <?php
+require '../Include/lock.php';
+    if(!isset($_SESSION['username'])){
+        // echo "SILAHKAN LOGIN";
+        header ('location:../../index.php');
+    } else {
         require '../Include/Header.php';
         require '../Include/Connect/Connections.php';
 		$total = "select count(*) as JUM from peserta ";
@@ -19,8 +23,8 @@ error_reporting(0)
             header ('location:../../login.php');
             exit(); 
          } else{
-			 $level = $_SESSION['mylevel'];
-             $user = $_SESSION['username'];
+    $level = $_SESSION['mylevel'];
+    $user = $_SESSION['username'];
     ?>
 </head>
 
@@ -34,23 +38,23 @@ error_reporting(0)
         <div class="container-fluid">
           <div class="row">
 		  <?php
-                        if($level === "Admin"){
-                        ?>
+            if($level === "Admin"){
+            ?>
 		  <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="card card-stats">
-                                <div class="card-header" data-background-color="rose">
-                                    <i class="material-icons">equalizer</i>
-                                </div>
-                                <div class="card-content">
-                                    <p class="category">Peserta Seminar</p>
-                                    <h3 class="card-title"><?php echo $totalp['JUM'];?></h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">date_range</i> Last 24 Hours
-                                    </div>
-                                </div>
-                            </div>
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="rose">
+                    <i class="material-icons">equalizer</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Peserta Seminar</p>
+                    <h3 class="card-title"><?php echo $totalp['JUM'];?></h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                </div>
+            </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
@@ -72,7 +76,7 @@ error_reporting(0)
                             }else{
                          ?>
 						 <div class="header text-center">
-                        <h3 class="title">ALur Proses</h3>
+                        <h3 class="title">ALur Proses <?php echo $user;?></h3>
 							</div>
 						 <ul class="timeline">
                                         <li class="timeline-inverted">
@@ -154,6 +158,7 @@ error_reporting(0)
 <?php
 // session_unset();
 //  session_destroy();
+    }
 }
 ?>
 </html>

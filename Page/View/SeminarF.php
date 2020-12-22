@@ -65,21 +65,6 @@ require '../Include/Connect/Connections.php';
                 if($insert){
                     move_uploaded_file($file_tmp, '../Include/Image/berkas/'.$berkas);
                    // return true;
-<<<<<<< HEAD
-                    echo 'FILE BERHASIL DI UPLOAD';
-                    header("location:../View/Peserta.php");
-                }else{
-                    echo 'GAGAL MENGUPLOAD GAMBAR';
-                    header("location:../View/Peserta.php");
-                }
-            }else{
-                echo 'UKURAN FILE TERLALU BESAR';
-                header("location:../View/Peserta.php");
-            }
-        }else{
-            echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
-            header("location:../View/Peserta.php");
-=======
                  //   echo 'FILE BERHASIL DI UPLOAD';
 					echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='Peserta.php'</script>";
                 }else{
@@ -89,12 +74,7 @@ require '../Include/Connect/Connections.php';
                echo "<script>alert('UKURAN FILE TERLALU BESAR'); window.location.href='Peserta.php'</script>";
             }
         }else{
-<<<<<<< HEAD
-            echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='peserta.php'</script>";
->>>>>>> main
-=======
             echo "<script>alert('EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN'); window.location.href='Peserta.php'</script>";
->>>>>>> main
         }
         echo "<script>alert('FILE BERHASIL DI UPLOAD'); window.location.href='Peserta.php'</script>";
     }

@@ -1,6 +1,11 @@
 <?php
 error_reporting(0);
 require '../Include/lock.php';
+require '../Include/lock.php';
+if(!isset($_SESSION['username'])){
+    // echo "SILAHKAN LOGIN";
+    header ('location:../../index.php');
+} else {
 require '../Include/Connect/Connections.php';
 if($_SESSION['status']!="Active"){
     header ('location:../../login.php');
@@ -10,38 +15,31 @@ if($_SESSION['status']!="Active"){
 
         // $query ="SELECT * FROM users WHERE level ="
 ?>
-<<<<<<< HEAD
-<div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../../assets/img/logo.jpg">           
-
-=======
 <div class="sidebar" data-active-color="green" data-background-color="black" data-image="../../assets/img/logo.jpg">           
-            
-            
->>>>>>> main
-            <div class="sidebar-wrapper">
-                <div class="user">
-                    <div class="photo">
-                        <img src="../../assets/img/faces/avatar.png" />
-                    </div>
-                    <div class="info">
-                        <a >
-                            <?php
-                             $query = $con->query("SELECT nama FROM peserta WHERE username = '$user'");
-                             $row = mysqli_fetch_assoc($query);
-                             echo "Sdr/i ".$row['nama'];
-                            ?>
-                        </a>
-                        <a >
-                            <?php
-                             //echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
-							 $query = $con->query("SELECT status FROM peserta WHERE username = '$user'");
-                             $row2 = mysqli_fetch_assoc($query);
-							 echo   $_SESSION['sebagai'] == "Admin" ? "Admin" : $row2['status'];
-                            ?>
-                        </a>
-                        
-                    </div>
-                </div>
+    <div class="sidebar-wrapper">
+        <div class="user">
+            <div class="photo">
+                <img src="../../assets/img/faces/avatar.png" />
+            </div>
+            <div class="info">
+                <a >
+                    <?php
+                        $query = $con->query("SELECT nama FROM peserta WHERE username = '$user'");
+                        $row = mysqli_fetch_assoc($query);
+                        echo "Sdr/i ".$row['nama'];
+                    ?>
+                </a>
+                <a >
+                    <?php
+                        //echo  $_SESSION['mylevel']=="User" ? "Peserta":$_SESSION['mylevel'];
+                        $query = $con->query("SELECT status FROM peserta WHERE username = '$user'");
+                        $row2 = mysqli_fetch_assoc($query);
+                        echo   $_SESSION['sebagai'] == "Admin" ? "Admin" : $row2['status'];
+                    ?>
+                </a>
+                
+            </div>
+        </div>
                 <ul class="nav">
                     <li>
                         <a href="../View/dashboard.php">
@@ -71,7 +69,7 @@ if($_SESSION['status']!="Active"){
                                 <li>
                                     <a href="../View/DataPeserta.php">
 									<i class="material-icons">person</i>
-									 <p>Data Pesertar</p>
+									 <p>Data Peserta</p>
 									</a>
                                 </li>
                             </ul>
@@ -108,3 +106,6 @@ if($_SESSION['status']!="Active"){
                 </ul>
             </div>
         </div>
+<?php
+}
+?>

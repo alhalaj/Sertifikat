@@ -1,4 +1,6 @@
 <?php
+// header('Content-type: text/html; charset=utf-8');
+// require_once '../Include/ar-php-master/I18N/Arabic.php';
  	$nama = $_POST['namacetak'];
 	$status = $_POST['status'];
 	$seminar = $_POST['seminar'];
@@ -16,7 +18,7 @@
 	$white = imageColorAllocate($image, 255, 255, 255);
 	$black = imageColorAllocate($image, 51, 51, 51);
 	//$font = __DIR__ . '/AQuinchoScript_PersonalUse.ttf';
-	$font=__DIR__ . '/Garamond.ttf';
+	$font='./Garamond.ttf';
 	$size = 85;
 	//definisikan lebar gambar agar posisi teks selalu ditengah berapapun jumlah hurufnya
 	$image_width = imagesx($image);  
@@ -42,18 +44,21 @@
 	$white = imageColorAllocate($image, 255, 255, 255);
 	$black = imageColorAllocate($image, 51, 51, 51);
 	//$font = __DIR__ . '/AQuinchoScript_PersonalUse.ttf';
-	$font=__DIR__ . '/Garamond.ttf';
+	$font='./Garamond.ttf';
+	$font='../Include/Fonts/Amiri/Amiri-Regular.ttf';
 	$size = 85;
 	//definisikan lebar gambar agar posisi teks selalu ditengah berapapun jumlah hurufnya
 	$image_width = imagesx($image);  
 	//membuat textbox agar text centered
 	$text_box = imagettfbbox($size,0,$font,$nama);
+	// echo $text_box;
 	$text_width = $text_box[2]-$text_box[0]; // lower right corner - lower left corner
-	$text_height = $text_box[3]-$text_box[1];
+	$text_height = $text_box[3]-$text_box[1]; 
 	$x = ($image_width/2) - ($text_width/2);
-	//generate sertifikat beserta namanya
-	imagettftext($image, $size, 0, $x, 530, $black, $font, $nama);
+	// //generate sertifikat beserta namanya
+	imagettftext($image, $size, 0, $x, 530, $black, $font,htmlentities($nama));
 	$file=$nama;
+		// header('Content-Type: image/png');	
 		imagejpeg($image,"serti/".$file.".png");
 		imagedestroy($image);
 	echo "<script>alert('Sertifikat Berhasil dcetak'); 
@@ -64,7 +69,7 @@
 	$white = imageColorAllocate($image, 255, 255, 255);
 	$black = imageColorAllocate($image, 51, 51, 51);
 	//$font = __DIR__ . '/AQuinchoScript_PersonalUse.ttf';
-	$font=__DIR__ . '/Garamond.ttf';
+	$font='./Garamond.ttf';
 	$size = 95;
 	//definisikan lebar gambar agar posisi teks selalu ditengah berapapun jumlah hurufnya
 	$image_width = imagesx($image);  
@@ -80,9 +85,6 @@
 		imagedestroy($image);
 	echo "<script>alert('Sertifikat Berhasil dcetak'); 
 	window.location.href='serti/".$file.".png';
-	</script>";
-		
+	</script>";	
 	}
-	
-
 ?>

@@ -9,7 +9,11 @@ error_reporting(0)
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/forms/regular.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:33:48 GMT -->
 <head>
     <?php 
-        require '../Include/lock.php';
+require '../Include/lock.php';
+if(!isset($_SESSION['username'])){
+    // echo "SILAHKAN LOGIN";
+    header ('location:../../index.php');
+} else {
         require '../Include/Header.php';
         require '../Include/Connect/Connections.php';
         if($_SESSION['status']!="Active"){
@@ -343,6 +347,7 @@ $(document).on('click', '.add_data_seminar', function(){
       });    
 </script>
 <?php
+}
 }
  ?>
 </html>

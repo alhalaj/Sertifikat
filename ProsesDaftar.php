@@ -23,7 +23,7 @@ if (isset($_POST['submit'])){
                 $status =  $_POST['status'];
             //    $hp =  $_POST['telepon'];
                 // $foto =  $_POST['foto'];
-                $date = date('Y-m-d', strtotime($_POST['tanggal']));
+                $date = date("Y-m-d"); //date('Y-m-d', strtotime($_POST['tanggal']));
                 $note = $_POST['keterangan'];
 
             //    $ekstensi_diperbolehkan	= array('png','jpg');
@@ -36,17 +36,18 @@ if (isset($_POST['submit'])){
             //    $path = 'Page/Include/Image/foto/';
              //    if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
               //      if($ukuran < 1044070){
-                            $query ="INSERT INTO users (`username`,`password`,`email`,`status`) VALUES ('$username','".md5($password)."','$email','$status');";
-                          $query .="INSERT INTO peserta (`username`,`nama`,`tempat_lahir`,`tgl_lahir`,`jnis_kelamin`,`propinsi`,`alamat`,`instansi`,`status`,`hp`,`foto`) VALUES
-                            ('$username','$nama','','','$jnis_kelamin','','','','$status','','')";
+                        $query ="INSERT INTO users (`username`,`password`,`email`,`status`) VALUES ('$username','".md5($password)."','$email','$status');";
+                        $query .="INSERT INTO peserta (`username`,`nama`,`tempat_lahir`,`tgl_lahir`,`jnis_kelamin`,`propinsi`,`alamat`,`instansi`,`status`,`hp`,`foto`) VALUES
+                        ('$username','$nama','','$date','$jnis_kelamin','','','','$status','','')";
                             // echo $query;
                             $insert = mysqli_multi_query($con,$query);
                             if($insert){
-                                    move_uploaded_file($file_tmp, $path.$foto);
+                                    // move_uploaded_file($file_tmp, $path.$foto);
                                     $status = base64_encode('status');
                                     $url = base64_encode('success');
                                     header("location:login_aksi.php?".$status."=".$url);
-               //               } else {
+                             }
+            //    else {
                                     // echo 'Error : '.$insert->error." ".$query;
                                     // echo 'Error : '.mysqli_error($con);
                //                 }
@@ -66,7 +67,6 @@ if (isset($_POST['submit'])){
         $url = base64_encode('notsuccess');
         header("location:daftar.php?".$status."=".$url);
     }
-}
 }
 $con->dba_close();
 ?>
